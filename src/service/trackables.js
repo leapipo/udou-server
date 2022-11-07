@@ -1,7 +1,6 @@
 const trackablesModel = require('../model/trackables');
 
 const trackablesService = {
-
   addTrackable(trackable) {
     return trackablesModel.addTrackable(trackable);
   },
@@ -22,10 +21,9 @@ const trackablesService = {
     return trackablesModel.getTrackableById(id);
   },
 
-  // deleteTrackable(id) { // consider cascade
-  // return trackablesModel.deleteTrackable(id)
-  // },
-
+  deleteTrackable(id) {
+    return trackablesModel.deleteTrackable(id);
+  },
 };
 
 module.exports = trackablesService;

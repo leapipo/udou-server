@@ -31,7 +31,10 @@ CREATE TABLE `entries`(
 ALTER TABLE
     `trackables` ADD CONSTRAINT `trackables_user_id_foreign` FOREIGN KEY(`user_id`) REFERENCES `users`(`id`);
 ALTER TABLE
-    `entries` ADD CONSTRAINT `boolean_entries_trackable_id_foreign` FOREIGN KEY(`trackable_id`) REFERENCES `trackables`(`id`);
+    `entries` ADD CONSTRAINT `boolean_entries_trackable_id_foreign` FOREIGN KEY(`trackable_id`) REFERENCES `trackables`(`id`)
+    ON DELETE CASCADE;
+
+
 
 INSERT INTO users (name, email)
 VALUES
@@ -45,7 +48,8 @@ VALUES
     (1, "Zumba", "boolean", null, "green", 1),
     (1, "Dessert", "boolean", null, "black", 0),
     (1, "Waist", "quantitative", "cm", "yellow", 1),
-    (1, "Bloating", "boolean", null, "blue", 1);
+    (1, "Bloating", "boolean", null, "blue", 1),
+    (2, "Bloating", "boolean", null, "blue", 1);
 
 INSERT INTO entries (trackable_id, date, boolean_value, quantitative_value)
 VALUES
